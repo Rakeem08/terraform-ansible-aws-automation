@@ -10,4 +10,3 @@ s3_log_bucket: ""
 aws_region: us-east-1
 s3_log_prefix: nginx-logs
 enable_s3_log_backup: true
-

@@ -23,4 +23,3 @@
     name: "{{ nginx_service_name }}"
     enabled: true
     state: started
-

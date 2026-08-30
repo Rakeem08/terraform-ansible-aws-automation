@@ -13,4 +13,3 @@
   ansible.builtin.systemd_service:
     name: "{{ log_backup_service_name }}"
     state: started
-
