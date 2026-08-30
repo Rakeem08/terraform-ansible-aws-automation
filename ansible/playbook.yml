@@ -1,0 +1,57 @@
+---
+- name: Configure the Tech Challenge 3 web server
+  hosts: webservers
+  become: true
+  gather_facts: true
+
+  pre_tasks:
+    - name: Wait for the EC2 SSH service
+      ansible.builtin.wait_for_connection:
+        delay: 5
+        timeout: 180
+
+    - name: Require the Terraform-created S3 bucket when backups are enabled
+      ansible.builtin.assert:
+        that:
+          - s3_log_bucket | length > 0
+        fail_msg: >-
+          Pass the Terraform bucket output with
+          -e "s3_log_bucket=YOUR_BUCKET_NAME".
+      when: enable_s3_log_backup | bool
+
+  roles:
+    - role: nginx
+    - role: log_backup
+      when: enable_s3_log_backup | bool
+
+  post_tasks:
+    - name: Request the deployed page from the local Nginx service
+      ansible.builtin.uri:
+        url: http://127.0.0.1/
+        method: GET
+        return_content: true
+        status_code: 200
+      register: website_check
+      changed_when: false
+
+    - name: Confirm that the required Hello World content was deployed
+      ansible.builtin.assert:
+        that:
+          - "'Hello, World!' in website_check.content"
+        success_msg: "Nginx returned HTTP 200 and displayed Hello, World!"
+        fail_msg: "The page responded, but the required Hello, World! text was missing."
+
+    - name: Verify that the S3 log-backup timer is active
+      ansible.builtin.command:
+        cmd: systemctl is-active nginx-log-backup.timer
+      register: backup_timer
+      changed_when: false
+      when: enable_s3_log_backup | bool
+
+    - name: Display deployment results
+      ansible.builtin.debug:
+        msg:
+          - "Required web server: Nginx is configured and running."
+          - "Required page: Hello, World! returned HTTP 200."
+          - "Extra S3 log backup enabled: {{ enable_s3_log_backup | bool }}"
+

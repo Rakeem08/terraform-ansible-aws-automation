@@ -1,0 +1,11 @@
+[Unit]
+Description=Archive Nginx logs to the Terraform-managed S3 bucket
+After=network-online.target nginx.service
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart={{ log_backup_script_path }}
+User=root
+Group=root
+

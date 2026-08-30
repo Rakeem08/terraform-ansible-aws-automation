@@ -1,0 +1,5 @@
+---
+log_backup_script_path: /usr/local/sbin/backup-nginx-logs
+log_backup_service_name: nginx-log-backup.service
+log_backup_timer_name: nginx-log-backup.timer
+

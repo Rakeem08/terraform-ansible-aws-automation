@@ -1,0 +1,26 @@
+---
+- name: Update the apt package cache
+  ansible.builtin.apt:
+    update_cache: true
+    cache_valid_time: 3600
+
+- name: Install the required Nginx web server
+  ansible.builtin.apt:
+    name: "{{ nginx_package_name }}"
+    state: present
+
+- name: Deploy the required Hello World web page
+  ansible.builtin.template:
+    src: index.html.j2
+    dest: "{{ nginx_document_root }}/index.html"
+    owner: root
+    group: root
+    mode: "0644"
+  notify: Reload Nginx
+
+- name: Ensure Nginx is enabled and running
+  ansible.builtin.service:
+    name: "{{ nginx_service_name }}"
+    enabled: true
+    state: started
+

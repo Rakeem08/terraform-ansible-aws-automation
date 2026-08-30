@@ -1,0 +1,13 @@
+---
+project_name: tech-challenge-3
+deployment_environment: dev
+site_title: Cloud Engineer Tech Challenge 3
+site_version: "1.0.0"
+
+# Terraform creates this bucket. Supply its output at deployment time:
+# -e "s3_log_bucket=$(terraform -chdir=terraform output -raw s3_bucket_name)"
+s3_log_bucket: ""
+aws_region: us-east-1
+s3_log_prefix: nginx-logs
+enable_s3_log_backup: true
+

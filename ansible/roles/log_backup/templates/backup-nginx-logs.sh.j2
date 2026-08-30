@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+archive_path="/tmp/nginx-logs-$(hostname)-$(date -u +%Y%m%dT%H%M%SZ).tar.gz"
+
+cleanup() {
+  rm -f "$archive_path"
+}
+
+trap cleanup EXIT
+
+tar -czf "$archive_path" -C /var/log/nginx .
+aws s3 cp \
+  "$archive_path" \
+  "s3://{{ s3_log_bucket }}/{{ s3_log_prefix }}/$(basename "$archive_path")" \
+  --region "{{ aws_region }}" \
+  --only-show-errors
+

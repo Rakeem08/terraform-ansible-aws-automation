@@ -1,0 +1,16 @@
+---
+- name: Reload systemd
+  ansible.builtin.systemd_service:
+    daemon_reload: true
+
+- name: Enable and start the Nginx log-backup timer
+  ansible.builtin.systemd_service:
+    name: "{{ log_backup_timer_name }}"
+    enabled: true
+    state: started
+
+- name: Run the initial Nginx log backup
+  ansible.builtin.systemd_service:
+    name: "{{ log_backup_service_name }}"
+    state: started
+
