@@ -12,9 +12,10 @@ step, see [PROJECT_WALKTHROUGH.md](PROJECT_WALKTHROUGH.md).
 
 ## Hosted website
 
-- Website URL: Run `terraform -chdir=terraform output -raw website_url`
-- GitHub repository: Add the private repository URL before submission
+- Live website: [http://100.57.227.180](http://100.57.227.180)
+- GitHub repository: [cloud-engineer-tech-challenge-3](https://github.com/Rakeem08/cloud-engineer-tech-challenge-3)
 - Required page content: **Hello, World!**
+
 
 ## Assignment coverage
 
