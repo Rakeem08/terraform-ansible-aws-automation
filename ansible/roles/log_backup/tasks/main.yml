@@ -2,12 +2,12 @@
 - name: Check whether AWS CLI v2 is installed
   ansible.builtin.command:
     cmd: /usr/local/bin/aws --version
-  register: aws_cli_check
+  register: log_backup_aws_cli_check
   changed_when: false
   failed_when: false
 
 - name: Install AWS CLI v2 when absent
-  when: aws_cli_check.rc != 0
+  when: log_backup_aws_cli_check.rc != 0
   block:
     - name: Install AWS CLI installer prerequisites
       ansible.builtin.apt:
@@ -88,5 +88,5 @@
 - name: Verify access through the EC2 IAM role
   ansible.builtin.command:
     cmd: aws sts get-caller-identity --region {{ aws_region }}
-  register: caller_identity
+  register: log_backup_caller_identity
   changed_when: false
