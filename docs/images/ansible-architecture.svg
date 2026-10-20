@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1220" viewBox="0 0 1800 1220" role="img" aria-labelledby="title desc"><title id="title">AWS Infrastructure &amp; Server Automation</title><desc id="desc">Terraform provisions a public EC2 web server, networking, IAM and private S3. Its output produces an Ansible inventory. Ansible configures Nginx over SSH restricted to an administrator CIDR, verifies HTTP locally, and optionally configures daily S3 log archives using the instance IAM role.</desc><defs>
+<marker id="blue" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8" fill="#2563eb"/></marker>
+<marker id="orange" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8" fill="#d97706"/></marker>
+<marker id="purple" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8" fill="#7c3aed"/></marker>
+<marker id="green" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8" fill="#168563"/></marker>
+<marker id="red" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8" fill="#dc4558"/></marker>
+<marker id="ink" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8" fill="#12223b"/></marker>
+<marker id="muted" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8" fill="#52647c"/></marker>
+</defs>
+<rect x="0" y="0" width="1800" height="1220" rx="0" fill="#f5f8fc" stroke="#f5f8fc"/>
+<text x="60" y="65" font-family="DejaVu Sans, sans-serif" font-size="16" fill="#2563eb" font-weight="700">RAKEEM BREWINGTON  /  CLOUD ENGINEERING PORTFOLIO</text>
+<text x="60" y="123" font-family="DejaVu Sans, sans-serif" font-size="42" fill="#12223b" font-weight="700">AWS Infrastructure &amp; Server Automation</text>
+<text x="60" y="164" font-family="DejaVu Sans, sans-serif" font-size="22" fill="#52647c" font-weight="400">Provision with Terraform. Configure with Ansible. Verify the website and archive logs.</text>
+<rect x="55" y="205" width="1690" height="225" rx="24" fill="#edf3fa" stroke="#d3dfed"/>
+<text x="80" y="243" font-family="DejaVu Sans, sans-serif" font-size="16" fill="#3f5675" font-weight="700">PROVISION &amp; CONFIGURE  /  ADMINISTRATOR WORKSTATION</text>
+<path d="M380 335H480" fill="none" stroke="#2563eb" stroke-width="2.5" marker-end="url(#blue)"/>
+<text x="395" y="315" font-family="DejaVu Sans, sans-serif" font-size="15" fill="#2563eb" font-weight="400">plan / apply</text>
+<path d="M780 335H880" fill="none" stroke="#2563eb" stroke-width="2.5" marker-end="url(#blue)"/>
+<text x="795" y="315" font-family="DejaVu Sans, sans-serif" font-size="15" fill="#2563eb" font-weight="400">EC2 output</text>
+<path d="M1180 335H1340" fill="none" stroke="#2563eb" stroke-width="2.5" marker-end="url(#blue)"/>
+<text x="1195" y="315" font-family="DejaVu Sans, sans-serif" font-size="15" fill="#2563eb" font-weight="400">host inventory</text>
+<rect x="80" y="280" width="300" height="110" rx="18" fill="#ffffff" stroke="#dce5ef"/>
+<circle cx="120" cy="320" r="27" fill="#2563eb" opacity=".10"/><g transform="translate(120,320)" fill="none" stroke="#2563eb" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="0" cy="-7" r="7"/><path d="M-13 17v-4a13 13 0 0 1 26 0v4"/></g>
+<text x="158" y="322" font-family="DejaVu Sans, sans-serif" font-size="19" fill="#12223b" font-weight="700">Engineer</text>
+<text x="98" y="366" font-family="DejaVu Sans, sans-serif" font-size="16" fill="#52647c" font-weight="400">Ubuntu / WSL + AWS CLI</text>
+<rect x="480" y="280" width="300" height="110" rx="18" fill="#ffffff" stroke="#dce5ef"/>
+<circle cx="520" cy="320" r="27" fill="#7c3aed" opacity=".10"/><g transform="translate(520,320)" fill="none" stroke="#7c3aed" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M0-21L19-10V11L0 22-19 11V-10Z M-19-10L0 1 19-10M0 1V22"/></g>
+<text x="558" y="322" font-family="DejaVu Sans, sans-serif" font-size="19" fill="#12223b" font-weight="700">Terraform</text>
+<text x="498" y="366" font-family="DejaVu Sans, sans-serif" font-size="16" fill="#52647c" font-weight="400">VPC • EC2 • IAM • S3 • security</text>
+<rect x="880" y="280" width="300" height="110" rx="18" fill="#ffffff" stroke="#dce5ef"/>
+<circle cx="920" cy="320" r="27" fill="#2563eb" opacity=".10"/><g transform="translate(920,320)" fill="none" stroke="#2563eb" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M-15-20H8l8 8v32h-31ZM8-20v9h8M-8-3H8M-8 5H8M-8 13H2"/></g>
+<text x="958" y="322" font-family="DejaVu Sans, sans-serif" font-size="19" fill="#12223b" font-weight="700">Inventory</text>
+<text x="898" y="366" font-family="DejaVu Sans, sans-serif" font-size="16" fill="#52647c" font-weight="400">Generated from Terraform output</text>
+<rect x="1340" y="280" width="300" height="110" rx="18" fill="#ffffff" stroke="#dce5ef"/>
+<circle cx="1380" cy="320" r="27" fill="#d97706" opacity=".10"/><g transform="translate(1380,320)" fill="none" stroke="#d97706" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><rect x="-19" y="-21" width="38" height="42" rx="4"/><path d="M-12-10h16M-12 0h16M-12 10h16"/></g>
+<text x="1418" y="322" font-family="DejaVu Sans, sans-serif" font-size="19" fill="#12223b" font-weight="700">Ansible</text>
+<text x="1358" y="366" font-family="DejaVu Sans, sans-serif" font-size="16" fill="#52647c" font-weight="400">Nginx + page + validation</text>
+<rect x="55" y="465" width="1690" height="445" rx="24" fill="#edf3fa" stroke="#d3dfed"/>
+<text x="80" y="503" font-family="DejaVu Sans, sans-serif" font-size="16" fill="#3f5675" font-weight="700">WEB SERVICE &amp; LOG ARCHIVING  /  AWS</text>
+<rect x="870" y="525" width="470" height="345" rx="18" fill="#e8f0fa" stroke="#c7d8ec"/>
+<text x="890" y="553" font-family="DejaVu Sans, sans-serif" font-size="15" fill="#3f5675" font-weight="700">VPC • PUBLIC SUBNET • ELASTIC IP</text>
+<path d="M380 700H480" fill="none" stroke="#2563eb" stroke-width="2.5" marker-end="url(#blue)"/>
+<text x="393" y="680" font-family="DejaVu Sans, sans-serif" font-size="15" fill="#2563eb" font-weight="400">HTTP :80</text>
+<path d="M780 700H910" fill="none" stroke="#2563eb" stroke-width="2.5" marker-end="url(#blue)"/>
+<text x="790" y="680" font-family="DejaVu Sans, sans-serif" font-size="15" fill="#2563eb" font-weight="400">allow HTTP</text>
+<path d="M1490 390V490H1100V590" fill="none" stroke="#d97706" stroke-width="2.5" stroke-dasharray="7 6" marker-end="url(#orange)"/>
+<text x="1170" y="480" font-family="DejaVu Sans, sans-serif" font-size="15" fill="#d97706" font-weight="400">SSH :22 • trusted administrator CIDR</text>
+<path d="M1260 645H1420" fill="none" stroke="#168563" stroke-width="2.5" marker-end="url(#green)"/>
+<text x="1270" y="626" font-family="DejaVu Sans, sans-serif" font-size="15" fill="#168563" font-weight="400">log archive</text>
+<rect x="80" y="645" width="300" height="110" rx="18" fill="#ffffff" stroke="#dce5ef"/>
+<circle cx="120" cy="685" r="27" fill="#2563eb" opacity=".10"/><g transform="translate(120,685)" fill="none" stroke="#2563eb" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="0" cy="-7" r="7"/><path d="M-13 17v-4a13 13 0 0 1 26 0v4"/></g>
+<text x="158" y="687" font-family="DejaVu Sans, sans-serif" font-size="19" fill="#12223b" font-weight="700">Browser</text>
+<text x="98" y="731" font-family="DejaVu Sans, sans-serif" font-size="16" fill="#52647c" font-weight="400">Hello, World! page</text>
+<rect x="480" y="645" width="300" height="110" rx="18" fill="#ffffff" stroke="#dce5ef"/>
+<circle cx="520" cy="685" r="27" fill="#7c3aed" opacity=".10"/><g transform="translate(520,685)" fill="none" stroke="#7c3aed" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M-20 0H0M0 0V-16H19M0 0V16H19"/><path d="M12-22l7 6-7 6M12 10l7 6-7 6"/></g>
+<text x="558" y="687" font-family="DejaVu Sans, sans-serif" font-size="19" fill="#12223b" font-weight="700">Internet Gateway</text>
+<text x="498" y="731" font-family="DejaVu Sans, sans-serif" font-size="16" fill="#52647c" font-weight="400">Public subnet route to internet</text>
+<rect x="910" y="590" width="350" height="140" rx="18" fill="#ffffff" stroke="#dce5ef"/>
+<circle cx="950" cy="630" r="27" fill="#d97706" opacity=".10"/><g transform="translate(950,630)" fill="none" stroke="#d97706" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><rect x="-19" y="-21" width="38" height="42" rx="4"/><path d="M-12-10h16M-12 0h16M-12 10h16"/></g>
+<text x="988" y="632" font-family="DejaVu Sans, sans-serif" font-size="19" fill="#12223b" font-weight="700">EC2 + Nginx</text>
+<text x="928" y="676" font-family="DejaVu Sans, sans-serif" font-size="16" fill="#52647c" font-weight="400">Ubuntu • encrypted EBS • IMDSv2</text>
+<text x="928" y="701" font-family="DejaVu Sans, sans-serif" font-size="16" fill="#52647c" font-weight="400">HTTP :80 • admin SSH :22</text>
+<text x="930" y="777" font-family="DejaVu Sans, sans-serif" font-size="16" fill="#52647c" font-weight="400">Instance IAM role → S3 log prefix</text>
+<text x="930" y="810" font-family="DejaVu Sans, sans-serif" font-size="16" fill="#52647c" font-weight="400">Daily systemd timer when enabled</text>
+<rect x="1420" y="590" width="280" height="140" rx="18" fill="#ffffff" stroke="#dce5ef"/>
+<circle cx="1460" cy="630" r="27" fill="#168563" opacity=".10"/><g transform="translate(1460,630)" fill="none" stroke="#168563" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="0" cy="-13" rx="18" ry="6"/><path d="M-18-13l5 29q13 8 26 0l5-29M-7 1h14"/></g>
+<text x="1498" y="632" font-family="DejaVu Sans, sans-serif" font-size="19" fill="#12223b" font-weight="700">Private S3</text>
+<text x="1438" y="676" font-family="DejaVu Sans, sans-serif" font-size="16" fill="#52647c" font-weight="400">Encrypted + versioned bucket</text>
+<text x="1438" y="701" font-family="DejaVu Sans, sans-serif" font-size="16" fill="#52647c" font-weight="400">nginx-logs/ archive prefix</text>
+<text x="1420" y="799" font-family="DejaVu Sans, sans-serif" font-size="15" fill="#52647c" font-weight="400">No permanent AWS keys on EC2</text>
+<rect x="55" y="945" width="1690" height="175" rx="24" fill="#edf3fa" stroke="#d3dfed"/>
+<text x="80" y="983" font-family="DejaVu Sans, sans-serif" font-size="16" fill="#3f5675" font-weight="700">DESIGN &amp; OPERATIONS</text>
+<text x="80" y="1023" font-family="DejaVu Sans, sans-serif" font-size="17" fill="#2563eb" font-weight="700">01  CONFIGURE REPEATABLY</text>
+<text x="80" y="1057" font-family="DejaVu Sans, sans-serif" font-size="17" fill="#52647c" font-weight="400">Ansible roles install and configure Nginx.</text>
+<text x="80" y="1087" font-family="DejaVu Sans, sans-serif" font-size="16" fill="#52647c" font-weight="400">Inventory connects provisioning to setup.</text>
+<text x="630" y="1023" font-family="DejaVu Sans, sans-serif" font-size="17" fill="#2563eb" font-weight="700">02  VERIFY THE RESULT</text>
+<text x="630" y="1057" font-family="DejaVu Sans, sans-serif" font-size="17" fill="#52647c" font-weight="400">Ansible requests http://127.0.0.1/.</text>
+<text x="630" y="1087" font-family="DejaVu Sans, sans-serif" font-size="16" fill="#52647c" font-weight="400">Checks HTTP 200 and Hello, World! text.</text>
+<text x="1180" y="1023" font-family="DejaVu Sans, sans-serif" font-size="17" fill="#2563eb" font-weight="700">03  CHECK CODE QUALITY</text>
+<text x="1180" y="1057" font-family="DejaVu Sans, sans-serif" font-size="17" fill="#52647c" font-weight="400">GitHub Actions validates Terraform / Ansible.</text>
+<text x="1180" y="1087" font-family="DejaVu Sans, sans-serif" font-size="16" fill="#52647c" font-weight="400">AWS deployment is a manual operation.</text>
+<text x="65" y="1175" font-family="DejaVu Sans, sans-serif" font-size="16" fill="#52647c" font-weight="400">BUILT WITH   Terraform • Ansible • EC2 • Nginx • IAM • S3 • systemd • GitHub Actions</text>
+</svg>
