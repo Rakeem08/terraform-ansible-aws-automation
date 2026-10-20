@@ -45,18 +45,11 @@ step, see [PROJECT_WALKTHROUGH.md](PROJECT_WALKTHROUGH.md).
 
 ## Architecture
 
-```mermaid
-flowchart TD
-    User["User on port 80"] --> EC2["EC2 and Nginx"]
-    Admin["Administrator on port 22"] --> EC2
-    TF["Terraform"] --> AWS["VPC, EC2, S3, IAM and security"]
-    AN["Ansible"] --> EC2
-    EC2 -->|"IAM role: archive logs"| S3["Encrypted S3 bucket"]
-```
+![Terraform provisioning, Ansible configuration and AWS web service](docs/images/ansible-architecture.svg)
 
-Terraform creates the AWS environment. Ansible then connects to the EC2
-instance, installs Nginx, deploys the page, configures the S3 log-backup timer,
-and checks that the page returns HTTP 200 with the required text.
+[Open the full-size architecture graphic](docs/images/ansible-architecture.svg)
+
+Terraform provisions the AWS environment and outputs the EC2 connection details used to generate the Ansible inventory. Ansible connects over administrator-restricted SSH, configures Nginx, checks local HTTP 200 and page content, and configures daily S3 log archives when backups are enabled. The instance role authorizes writes to the log prefix. Dotted arrows show configuration flow.
 
 ## Repository structure
 
