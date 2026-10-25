@@ -10,6 +10,27 @@ additional improvements.
 For the full phase-by-phase explanation and the business decision behind every
 step, see [PROJECT_WALKTHROUGH.md](PROJECT_WALKTHROUGH.md).
 
+## Project at a glance
+
+**Business scenario:** Manually creating cloud servers and configuring web software is slow, inconsistent, and difficult to audit.
+
+**What I built:** Used Terraform to provision EC2, networking, IAM, security groups, and S3. Used Ansible to configure Nginx, deploy a test page, validate HTTP responses, and optionally archive web-server logs to S3.
+
+**Verified outcomes**
+- Confirmed Ansible could connect to the provisioned instance over SSH.
+- Validated the deployed page with an **HTTP 200** response and expected content.
+- Added infrastructure and configuration checks, then removed lab resources to limit unnecessary AWS spend.
+
+**Key decisions:** Terraform defines cloud resources consistently; Ansible applies repeatable, idempotent server configuration; least-privilege IAM and restricted SSH access reduce operational risk.
+
+**Production improvements to prioritize:** HTTPS, private administration through SSM, remote Terraform state and locking, monitoring alerts, and automated recovery tests.
+
+**Stack:** AWS EC2 · S3 · IAM · VPC · Terraform · Ansible · Linux · Nginx · GitHub Actions
+
+**Explore:** [Architecture](#architecture) · [Detailed walkthrough](PROJECT_WALKTHROUGH.md) · [Source code](https://github.com/Rakeem08/terraform-ansible-aws-automation)
+
+> **Portfolio environment:** The website IP below documents a temporary lab deployment, not a maintained production service.
+
 ## Hosted website
 
 - Live website: [http://100.57.227.180](http://100.57.227.180)
