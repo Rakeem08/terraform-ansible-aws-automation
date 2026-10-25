@@ -1,4 +1,4 @@
-# Cloud Engineer Tech Challenge 3
+# AWS Infrastructure Automation — Terraform and Ansible
 
 Infrastructure as Code and configuration-management project that provisions an
 AWS EC2 web server with Terraform and configures it with Ansible.
@@ -13,7 +13,7 @@ step, see [PROJECT_WALKTHROUGH.md](PROJECT_WALKTHROUGH.md).
 ## Hosted website
 
 - Live website: [http://100.57.227.180](http://100.57.227.180)
-- GitHub repository: [cloud-engineer-tech-challenge-3](https://github.com/Rakeem08/cloud-engineer-tech-challenge-3)
+- GitHub repository: [terraform-ansible-aws-automation](https://github.com/Rakeem08/terraform-ansible-aws-automation)
 - Required page content: **Hello, World!**
 
 
