@@ -3,9 +3,9 @@
 Infrastructure as Code and configuration-management project that provisions an
 AWS EC2 web server with Terraform and configures it with Ansible.
 
-The assignment requirements are implemented first and remain easy to identify.
-Security, log archiving, automated verification, and code-quality checks are
-additional improvements.
+The core implementation provisions a web server and configures Nginx.
+Security controls, log archiving, automated verification, and code-quality checks
+support repeatable deployment and operations.
 
 For the full phase-by-phase explanation and the business decision behind every
 step, see [PROJECT_WALKTHROUGH.md](PROJECT_WALKTHROUGH.md).
@@ -16,10 +16,13 @@ step, see [PROJECT_WALKTHROUGH.md](PROJECT_WALKTHROUGH.md).
 
 **What I built:** Used Terraform to provision EC2, networking, IAM, security groups, and S3. Used Ansible to configure Nginx, deploy a test page, validate HTTP responses, and optionally archive web-server logs to S3.
 
-**Verified outcomes**
-- Confirmed Ansible could connect to the provisioned instance over SSH.
-- Validated the deployed page with an **HTTP 200** response and expected content.
-- Added infrastructure and configuration checks, then removed lab resources to limit unnecessary AWS spend.
+**Implemented verification**
+
+- The playbook waits for SSH before configuring the server.
+- It checks for an **HTTP 200** response and expected page content.
+- GitHub Actions defines infrastructure and configuration quality checks.
+
+These checks describe the implementation. Capture run results and cleanup evidence for each deployment; source code alone does not establish current AWS resource status.
 
 **Key decisions:** Terraform defines cloud resources consistently; Ansible applies repeatable, idempotent server configuration; least-privilege IAM and restricted SSH access reduce operational risk.
 
@@ -33,7 +36,7 @@ step, see [PROJECT_WALKTHROUGH.md](PROJECT_WALKTHROUGH.md).
 
 ## Hosted website
 
-- Live website: [http://100.57.227.180](http://100.57.227.180)
+- Historical lab website: [http://100.57.227.180](http://100.57.227.180)
 - GitHub repository: [terraform-ansible-aws-automation](https://github.com/Rakeem08/terraform-ansible-aws-automation)
 - Required page content: **Hello, World!**
 
@@ -123,12 +126,14 @@ ansible --version
 aws sts get-caller-identity
 ```
 
-## 1. Clone the private repository
+## 1. Clone the public repository
 
 ```bash
-git clone YOUR_PRIVATE_REPOSITORY_URL
-cd cloud-engineer-tech-challenge-3
+git clone https://github.com/Rakeem08/terraform-ansible-aws-automation.git
+cd terraform-ansible-aws-automation
 ```
+
+The existing `tech-challenge-3` AWS resource prefix and SSH key paths remain implementation defaults. The public repository name is `terraform-ansible-aws-automation`; renaming the repository does not rename AWS resources.
 
 Do not commit SSH private keys, AWS credentials, Terraform state, or the real
 **terraform.tfvars** file.

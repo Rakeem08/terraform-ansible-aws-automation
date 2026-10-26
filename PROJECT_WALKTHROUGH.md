@@ -1,4 +1,4 @@
-# Tech Challenge 3: Step-by-Step Build and Business Decisions
+# AWS Infrastructure Automation: Build and Business Decisions
 
 This guide explains not only how to complete the project, but why each decision
 was made. Items labeled **Required** come directly from the assignment. Items
@@ -31,27 +31,21 @@ The overall business problem is:
 > automatically, secured appropriately, verified after deployment, and rebuilt
 > without relying on manual console work.
 
-## Step 1 — Create a private GitHub repository
+## Step 1 — Clone the public project repository
 
-**Assignment status:** Required
-
-Create a private repository named:
-
-```text
-cloud-engineer-tech-challenge-3
-```
-
-Clone it and place the project files inside it:
+This project originated as a training assignment and is now published as a portfolio repository:
 
 ```bash
-git clone YOUR_PRIVATE_REPOSITORY_URL
-cd cloud-engineer-tech-challenge-3
+git clone https://github.com/Rakeem08/terraform-ansible-aws-automation.git
+cd terraform-ansible-aws-automation
 ```
+
+The `tech-challenge-3` infrastructure prefix and SSH key filenames remain in the configuration. Keep them consistent with your Terraform inputs; the GitHub repository rename does not change them.
 
 ### What this accomplishes
 
 Git tracks every change to the Terraform, Ansible, and documentation files.
-GitHub stores the repository and allows the mentor to review it.
+GitHub stores the public project so reviewers can inspect its implementation.
 
 ### Why we chose it
 
@@ -603,24 +597,20 @@ spending all their time locating basic syntax errors.
 Early automated feedback reduces rework, improves consistency, and prevents
 broken infrastructure code from moving further through the delivery process.
 
-## Step 18 — Document and submit the project
+## Step 18 — Document implementation and deployment evidence
 
-**Assignment status:** Required
+Before sharing a deployment result:
 
-Before submission:
-
-1. Add the real website URL to **README.md**.
-2. Add a screenshot of the working page.
-3. Confirm the private GitHub repository contains all required code.
-4. Confirm no credentials, private keys, state, or real variable files exist in
-   GitHub.
-5. Share the private repository with the mentor.
-6. Submit the repository link and hosted URL.
-7. Complete **ASSIGNMENT_CHECKLIST.md**.
+1. Use Terraform's website output to identify the current lab endpoint.
+2. Capture a screenshot and non-sensitive command output when you run the lab.
+3. Confirm the public repository contains the configuration needed to reproduce it.
+4. Inspect changes for credentials, private keys, state, and real variable files.
+5. Link the current public repository and distinguish historical endpoints from active deployments.
+6. Complete the runtime checks in **ASSIGNMENT_CHECKLIST.md** only when supported by evidence.
 
 ### What this accomplishes
 
-It gives the evaluator clear evidence that every requirement works.
+It lets reviewers distinguish implemented configuration from verified runtime behavior.
 
 ### Why we chose it
 
@@ -642,7 +632,7 @@ Review what will be removed:
 terraform -chdir=terraform plan -destroy
 ```
 
-After saving any evidence required for submission:
+After saving the deployment evidence you need:
 
 ```bash
 terraform -chdir=terraform destroy
